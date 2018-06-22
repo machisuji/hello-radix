@@ -19,7 +19,7 @@ class HelloRadix {
   def wallet: RadixWallet = RadixWallet.getInstance()
   def balance: Double = wallet
     .getXRDSubUnitBalance(myAddress)
-    .map[Double](balance => balance.toLong / Asset.XRD.getSubUnits)
+    .map[Double](balance => balance.toDouble / Asset.XRD.getSubUnits)
     .blockingFirst()
 
   def hello(): Unit = {
